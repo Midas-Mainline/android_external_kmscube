@@ -346,7 +346,7 @@ static int init_tex_rgba(void)
 		attr[size - 3] = EGL_DMA_BUF_PLANE0_MODIFIER_HI_EXT;
 		attr[size - 2] = modifier >> 32;
 	}
-	EGLImage img;
+	EGLImageKHR img;
 
 	glGenTextures(1, gl.tex);
 
@@ -412,7 +412,7 @@ static int init_tex_nv12_2img(void)
 		attr_uv[size - 2] = modifier_uv >> 32;
 	}
 
-	EGLImage img_y, img_uv;
+	EGLImageKHR img_y, img_uv;
 
 	glGenTextures(2, gl.tex);
 
@@ -471,7 +471,7 @@ static int init_tex_nv12_1img(void)
 		EGL_NONE, EGL_NONE,	/* modifier hi */
 		EGL_NONE
 	};
-	EGLImage img;
+	EGLImageKHR img;
 
 	if (egl->modifiers_supported &&
 	    modifier_y != DRM_FORMAT_MOD_INVALID &&
@@ -640,7 +640,7 @@ const struct egl * init_cube_tex(const struct gbm *gbm, enum mode mode, int samp
 
 	ret = init_tex(mode);
 	if (ret) {
-		printf("failed to initialize EGLImage texture\n");
+		printf("failed to initialize EGLImageKHR texture\n");
 		return NULL;
 	}
 

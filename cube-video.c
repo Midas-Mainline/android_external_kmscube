@@ -223,7 +223,7 @@ static const char *fragment_shader_source =
 static void draw_cube_video(unsigned i)
 {
 	ESMatrix modelview;
-	EGLImage frame;
+	EGLImageKHR frame;
 
 	if (gl.last_fence) {
 		egl->eglClientWaitSyncKHR(egl->display, gl.last_fence, 0, EGL_FOREVER_KHR);
