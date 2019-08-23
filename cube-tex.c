@@ -316,7 +316,7 @@ static int init_tex_rgba(void)
 		EGL_DMA_BUF_PLANE0_PITCH_EXT, stride,
 		EGL_NONE
 	};
-	EGLImage img;
+	EGLImageKHR img;
 
 	glGenTextures(1, gl.tex);
 
@@ -359,7 +359,7 @@ static int init_tex_nv12_2img(void)
 		EGL_DMA_BUF_PLANE0_PITCH_EXT, stride_uv,
 		EGL_NONE
 	};
-	EGLImage img_y, img_uv;
+	EGLImageKHR img_y, img_uv;
 
 	glGenTextures(2, gl.tex);
 
@@ -411,7 +411,7 @@ static int init_tex_nv12_1img(void)
 		EGL_DMA_BUF_PLANE1_PITCH_EXT, stride_uv,
 		EGL_NONE
 	};
-	EGLImage img;
+	EGLImageKHR img;
 
 	glGenTextures(1, gl.tex);
 
@@ -564,7 +564,7 @@ const struct egl * init_cube_tex(const struct gbm *gbm, enum mode mode)
 
 	ret = init_tex(mode);
 	if (ret) {
-		printf("failed to initialize EGLImage texture\n");
+		printf("failed to initialize EGLImageKHR texture\n");
 		return NULL;
 	}
 
