@@ -151,10 +151,11 @@ int init_drm(struct drm *drm, const char *device)
 	drmModeEncoder *encoder = NULL;
 	int i, area;
 
+	printf("using device %s\n", device);
 	drm->fd = open(device, O_RDWR);
 
 	if (drm->fd < 0) {
-		printf("could not open drm device\n");
+		printf("could not open drm device (%s): %d\n", device, drm->fd);
 		return -1;
 	}
 
